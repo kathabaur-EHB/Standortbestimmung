@@ -96,9 +96,6 @@ def build_index():
   <p contenteditable="true">Platzhalter: Meine Schwerpunkte fürs 2. Studienjahr ...</p>
 </div>
 
-<div class="footer-links">
-  <a href="qrcodes.html">QR-Codes für das Plakat</a>
-</div>
 """
     html += "</div>\n</body>\n</html>\n"
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
