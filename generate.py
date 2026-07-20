@@ -66,7 +66,7 @@ def build_index():
 <section class="hero">
   <span class="eyebrow">Zwischenbilanz nach dem 1. Studienjahr · SDS-Blocktage Magglingen 2026 · SG 25–27</span>
   <h1>Ich als Lehrperson</h1>
-  <p class="subtitle">Persönliche Standortbestimmung anhand der 11 Handlungskompetenzbereiche. Auf jeder Unterseite: links Ihre Kompetenzen, rechts Ihre Entwicklungspotenziale.</p>
+  <p class="subtitle">Persönliche Standortbestimmung anhand der 11 Handlungskompetenzbereiche. Auf jeder Unterseite: links die Kompetenzen, rechts die Entwicklungspotenziale.</p>
   <div class="legend">
 """
     for key, g in GROUPS.items():
