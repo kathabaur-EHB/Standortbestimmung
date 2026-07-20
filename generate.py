@@ -86,16 +86,6 @@ def build_index():
       <span class="letter">Handlungskompetenz {letter}</span>
     </a>
 """
-        html += "  </div>\n</section>\n"
-
-    html += """
-<div class="outlook-box">
-  <span class="eyebrow">Ausblick</span>
-  <h2>Daran arbeite ich weiter</h2>
-  <!-- PLATZHALTER: Hier später die persönlichen Schwerpunkte fürs 2. Studienjahr eintragen -->
-  <p contenteditable="true">Platzhalter: Meine Schwerpunkte fürs 2. Studienjahr ...</p>
-</div>
-"""
     html += "</div>\n</body>\n</html>\n"
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
