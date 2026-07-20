@@ -237,30 +237,7 @@ a { color: inherit; }
   color: #fff;
   font-size: 1.4rem;
   font-weight: 700;
-}
 
-.detail-header h1 { margin: 0 0 4px; font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
-.detail-header .group-label { font-size: 0.85rem; font-weight: 600; }
-
-.person-fields {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 10px 24px;
-  margin: 24px 0 32px;
-  padding: 16px 18px;
-  background: #fff;
-  border: 1px solid var(--cream-dark);
-  border-radius: 12px;
-  font-size: 0.85rem;
-}
-
-.person-fields label { display: block; color: var(--ink-soft); font-weight: 600; margin-bottom: 3px; }
-.person-fields .field-line { border-bottom: 1px solid var(--cream-dark); min-height: 20px; }
-
-.columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
 }
 
 @media (max-width: 720px) {
