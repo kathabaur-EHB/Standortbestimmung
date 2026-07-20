@@ -1,0 +1,437 @@
+/* ============================================================
+   Persönliche Standortbestimmung – SDS Magglingen 2026
+   Farbschema orientiert sich am Plakat "Persönliche Standortbestimmung"
+   ============================================================ */
+
+:root {
+  --cream: #f5f0e5;
+  --cream-dark: #ece4d3;
+  --ink: #262019;
+  --ink-soft: #4a4139;
+
+  --gestalten: #c97b56;
+  --gestalten-tint: #f0c9ae;
+  --gestalten-tint-soft: #f7e2d2;
+
+  --begleiten: #4f9483;
+  --begleiten-tint: #cfe6dd;
+  --begleiten-tint-soft: #e4f1ec;
+
+  --rolle: #7d79a6;
+  --rolle-tint: #dad7e9;
+  --rolle-tint-soft: #ece9f4;
+
+  --radius: 18px;
+  --max-width: 980px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Work Sans", "Segoe UI", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* --- Kopfbereich (gemeinsam) --- */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.top-bar .back-link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-bar .back-link:hover { color: var(--ink); }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+/* --- Übersicht (index.html) --- */
+
+.hero {
+  text-align: left;
+  padding: 8px 0 32px;
+  border-bottom: 1px solid var(--cream-dark);
+  margin-bottom: 36px;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 8px 0 6px;
+}
+
+.hero p.subtitle {
+  color: var(--ink-soft);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-item.gestalten { background: var(--gestalten-tint-soft); color: #7a4527; }
+.legend-item.gestalten .legend-dot { background: var(--gestalten); }
+.legend-item.begleiten { background: var(--begleiten-tint-soft); color: #285c4e; }
+.legend-item.begleiten .legend-dot { background: var(--begleiten); }
+.legend-item.rolle { background: var(--rolle-tint-soft); color: #423f66; }
+.legend-item.rolle .legend-dot { background: var(--rolle); }
+
+.group-section { margin-bottom: 40px; }
+
+.group-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.group-heading .legend-dot { width: 12px; height: 12px; }
+
+.group-heading h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  border: 1px solid var(--cream-dark);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(38, 32, 25, 0.08);
+}
+
+.card .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.card.gestalten .num { background: var(--gestalten); }
+.card.begleiten .num { background: var(--begleiten); }
+.card.rolle .num { background: var(--rolle); }
+
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.card .letter {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.outlook-box {
+  margin-top: 40px;
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+}
+
+.outlook-box .eyebrow { color: var(--cream-dark); }
+.outlook-box h2 { margin: 6px 0 10px; font-size: 1.2rem; }
+.outlook-box p { margin: 0; color: #d8d0c1; font-size: 0.92rem; }
+
+.footer-links {
+  margin-top: 44px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+
+.footer-links a { font-weight: 600; text-decoration: none; border-bottom: 2px solid currentColor; }
+
+/* --- Detailseite pro Handlungskompetenz --- */
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.detail-header .num-badge {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.detail-header h1 { margin: 0 0 4px; font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
+.detail-header .group-label { font-size: 0.85rem; font-weight: 600; }
+
+.person-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 24px;
+  margin: 24px 0 32px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--cream-dark);
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.person-fields label { display: block; color: var(--ink-soft); font-weight: 600; margin-bottom: 3px; }
+.person-fields .field-line { border-bottom: 1px solid var(--cream-dark); min-height: 20px; }
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 720px) {
+  .columns { grid-template-columns: 1fr; }
+}
+
+.col {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 22px 22px 26px;
+  border: 1px solid var(--cream-dark);
+  border-top: 6px solid transparent;
+}
+
+.col h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.col.gestalten { border-top-color: var(--gestalten); }
+.col.begleiten { border-top-color: var(--begleiten); }
+.col.rolle { border-top-color: var(--rolle); }
+
+/* Platzhalter-Textfeld: hier trägt die Nutzerin/der Nutzer später eigenen Text ein */
+.placeholder-text {
+  min-height: 160px;
+  padding: 12px 14px;
+  border: 1.5px dashed #c9c0ac;
+  border-radius: 10px;
+  color: #8a8072;
+  font-size: 0.92rem;
+  background: var(--cream);
+}
+
+.placeholder-text[contenteditable="true"]:focus {
+  outline: 2px solid var(--ink-soft);
+  color: var(--ink);
+}
+
+/* Platzhalter-Bildfeld: hier kann später ein <img> eingesetzt werden */
+.placeholder-image {
+  margin-top: 14px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 1.5px dashed #c9c0ac;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a8072;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--cream-dark);
+  background: #fff;
+}
+
+.page-nav a:hover { background: var(--cream-dark); }
+
+.page-nav .to-overview {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--ink-soft);
+}
+
+/* --- QR-Code Seite --- */
+
+.qr-config {
+  background: #fff;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 30px;
+}
+
+.qr-config label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.qr-config input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--cream-dark);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.qr-config button {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.qr-card {
+  background: #fff;
+  border: 1px solid var(--cream-dark);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  break-inside: avoid;
+}
+
+.qr-card .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+}
+
+.qr-card.gestalten .num { background: var(--gestalten); }
+.qr-card.begleiten .num { background: var(--begleiten); }
+.qr-card.rolle .num { background: var(--rolle); }
+
+.qr-card h3 { font-size: 0.85rem; margin: 6px 0 10px; min-height: 34px; }
+
+.qr-canvas-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.qr-card .filename {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  word-break: break-all;
+}
+
+@media print {
+  .top-bar, .qr-config, .no-print { display: none !important; }
+  body { background: #fff; }
+  .qr-card { box-shadow: none; border: 1px solid #ccc; }
+}
