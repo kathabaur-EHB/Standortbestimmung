@@ -121,13 +121,6 @@ def build_detail(idx, letter, title, group):
   </div>
 </div>
 
-<div class="person-fields">
-  <div><label>Name</label><div class="field-line" contenteditable="true"></div></div>
-  <div><label>Beruf / Fachbereich</label><div class="field-line" contenteditable="true"></div></div>
-  <div><label>Stufe / Schule</label><div class="field-line" contenteditable="true"></div></div>
-  <div><label>Datum</label><div class="field-line" contenteditable="true"></div></div>
-</div>
-
 <div class="columns">
   <div class="col {group}">
     <h2>Kompetenzen</h2>
