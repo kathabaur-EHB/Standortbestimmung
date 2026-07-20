@@ -95,7 +95,6 @@ def build_index():
   <!-- PLATZHALTER: Hier später die persönlichen Schwerpunkte fürs 2. Studienjahr eintragen -->
   <p contenteditable="true">Platzhalter: Meine Schwerpunkte fürs 2. Studienjahr ...</p>
 </div>
-
 """
     html += "</div>\n</body>\n</html>\n"
     with open(os.path.join(OUT, "index.html"), "w", encoding="utf-8") as f:
@@ -157,86 +156,8 @@ def build_detail(idx, letter, title, group):
         f.write(html)
 
 
-# ---------- qrcodes.html ----------
-
-def build_qrcodes():
-    html = page_head("QR-Codes für das Plakat – Persönliche Standortbestimmung")
-    html += top_bar()
-    html += '<div class="wrap">\n'
-    html += """
-<section class="hero">
-  <span class="eyebrow">Für den Druck</span>
-  <h1>QR-Codes fürs Plakat</h1>
-  <p class="subtitle">Basis-URL eintragen (z. B. die GitHub-Pages-Adresse), dann erzeugt jede Kachel einen QR-Code auf die passende Unterseite. Zum Ausdrucken oder Ausschneiden.</p>
-</section>
-
-<div class="qr-config no-print">
-  <label for="baseUrl">Basis-URL der Webseite (z. B. https://benutzername.github.io/repo-name/)</label>
-  <input type="text" id="baseUrl" placeholder="https://benutzername.github.io/repo-name/">
-  <button onclick="renderCodes()">QR-Codes erzeugen</button>
-</div>
-
-<div class="qr-grid" id="qrGrid"></div>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-const KOMPETENZEN = [
-"""
-    for i, letter, title, group in KOMPETENZEN:
-        title_js = title.replace('"', '\\"')
-        html += f'  {{ id: {i}, letter: "{letter}", title: "{title_js}", group: "{group}", file: "{filename(i)}" }},\n'
-    html += """];
-
-function renderCodes() {
-  const grid = document.getElementById('qrGrid');
-  grid.innerHTML = '';
-  let base = document.getElementById('baseUrl').value.trim();
-  if (base && !base.endsWith('/')) base += '/';
-
-  KOMPETENZEN.forEach(k => {
-    const card = document.createElement('div');
-    card.className = 'qr-card ' + k.group;
-
-    const num = document.createElement('span');
-    num.className = 'num';
-    num.textContent = k.id;
-    card.appendChild(num);
-
-    const h3 = document.createElement('h3');
-    h3.textContent = k.title;
-    card.appendChild(h3);
-
-    const holder = document.createElement('div');
-    holder.className = 'qr-canvas-holder';
-    card.appendChild(holder);
-
-    const url = base ? (base + k.file) : k.file;
-    new QRCode(holder, { text: url, width: 140, height: 140, colorDark: '#262019', colorLight: '#ffffff' });
-
-    const fn = document.createElement('div');
-    fn.className = 'filename';
-    fn.textContent = url;
-    card.appendChild(fn);
-
-    grid.appendChild(card);
-  });
-}
-
-// Beim Laden gleich mit leerer/relativer Basis-URL anzeigen
-renderCodes();
-</script>
-</body>
-</html>
-"""
-    with open(os.path.join(OUT, "qrcodes.html"), "w", encoding="utf-8") as f:
-        f.write(html)
-
-
 if __name__ == "__main__":
     build_index()
     for i, letter, title, group in KOMPETENZEN:
         build_detail(i, letter, title, group)
-    build_qrcodes()
     print("Fertig. Dateien erzeugt in:", OUT)
