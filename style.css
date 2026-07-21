@@ -9,17 +9,17 @@
   --ink: #262019;
   --ink-soft: #4a4139;
 
-  --gestalten: #c97b56;
-  --gestalten-tint: #f0c9ae;
-  --gestalten-tint-soft: #f7e2d2;
+  --gestalten: #ffa3b4;
+  --gestalten-tint: #ffb6c1;
+  --gestalten-tint-soft: #ffd0db;
 
-  --begleiten: #4f9483;
-  --begleiten-tint: #cfe6dd;
-  --begleiten-tint-soft: #e4f1ec;
+  --begleiten: #b7d5ac;
+  --begleiten-tint: #b7d5ac;
+  --begleiten-tint-soft: #b9d1b0;
 
-  --rolle: #7d79a6;
-  --rolle-tint: #dad7e9;
-  --rolle-tint-soft: #ece9f4;
+  --rolle: #ffff7a;
+  --rolle-tint: #ffff7a;
+  --rolle-tint-soft: #ffffde;
 
   --radius: 18px;
   --max-width: 980px;
